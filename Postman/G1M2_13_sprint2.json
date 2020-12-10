@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "ee42ed17-0c0f-4898-8796-67f125ee37ff",
+		"name": "G1M2_13_sprint2",
+		"description": "Sprint 2 - Ciclo III - MisionTIC 2022",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Heroku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Obtener una reserva de la base de datos"
+			},
+			"response": [
+				{
+					"name": "Get Heroku Sprint 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hotel-api-equipo13.herokuapp.com/reserva/1",
+							"protocol": "https",
+							"host": [
+								"hotel-api-equipo13",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reserva",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Dec 2020 23:43:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "Content-Length",
+							"value": "378"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idReserva\": 1,\n    \"fechaReserva\": \"2020-12-09T21:30:48.620822\",\n    \"fechaLlegada\": \"2020-12-10\",\n    \"fechaSalida\": \"2020-12-12\",\n    \"habitacion\": \"Suit de lujo\",\n    \"numeroPersonas\": 2,\n    \"nombres\": \"Juan\",\n    \"apellidos\": \"Rulfo Vizcaíno\",\n    \"email\": \"juanrulfo@gmail.com\",\n    \"telefono\": 3104632378,\n    \"tipoDocumento\": \"CC\",\n    \"numeroDocumento\": 10227923,\n    \"pais\": \"México\",\n    \"ciudad\": \"San Gabriel\",\n    \"direccion\": \"Calle 52 #28-20\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Heroku Sprint 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Sprint 2 - Ciclo III - MisionTIC 2022"
+			},
+			"response": [
+				{
+					"name": "POST Heroku Sprint 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idReserva\": 0,\r\n  \"fechaReserva\": \"2020-12-10T23:47:13.775Z\",\r\n  \"fechaLlegada\": \"2021-1-7\",\r\n  \"fechaSalida\": \"2021-1-17\",\r\n  \"habitacion\": \"Suite de Lujo\",\r\n  \"numeroPersonas\": 2,\r\n  \"nombres\": \"Patricio\",\r\n  \"apellidos\": \"Estrella\",\r\n  \"email\": \"thisispatrick@gmail.com\",\r\n  \"telefono\": 3205346712,\r\n  \"tipoDocumento\": \"CE\",\r\n  \"numeroDocumento\": 213912841,\r\n  \"pais\": \"USA\",\r\n  \"ciudad\": \"Fondo de Bikini\",\r\n  \"direccion\": \"Roca 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hotel-api-equipo13.herokuapp.com/reserva/reservar",
+							"protocol": "https",
+							"host": [
+								"hotel-api-equipo13",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reserva",
+								"reservar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Dec 2020 23:50:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "Content-Length",
+							"value": "374"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idReserva\": 4,\n    \"fechaReserva\": \"2020-12-10T23:50:12.360456\",\n    \"fechaLlegada\": \"2021-01-07\",\n    \"fechaSalida\": \"2021-01-17\",\n    \"habitacion\": \"Suite de Lujo\",\n    \"numeroPersonas\": 2,\n    \"nombres\": \"Patricio\",\n    \"apellidos\": \"Estrella\",\n    \"email\": \"thisispatrick@gmail.com\",\n    \"telefono\": 3205346712,\n    \"tipoDocumento\": \"CE\",\n    \"numeroDocumento\": 213912841,\n    \"pais\": \"USA\",\n    \"ciudad\": \"Fondo de Bikini\",\n    \"direccion\": \"Roca 123\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
