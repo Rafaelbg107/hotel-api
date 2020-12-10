@@ -60,6 +60,7 @@ generator = {"id":2} #Auto-Incremental
 def save_reserva(reserva_in_db: ReservaInDB):
     generator["id"] = generator["id"] + 1
     reserva_in_db.idReserva = generator["id"]
+    reserva_in_db.fechaReserva = datetime.now()
     database_reservas[generator["id"]] =  reserva_in_db
     return reserva_in_db
 
