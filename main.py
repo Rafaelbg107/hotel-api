@@ -19,6 +19,7 @@ origins = [
     "https://rrbustosg-cajero-app.herokuapp.com/", "http://127.0.0.1:8080"
     "https://rrbustosg-cajero-app.herokuapp.com", "http://127.0.0.1:8080",
     "https://hotel-app-equipo13.herokuapp.com/", "https://hotel-app-equipo13.herokuapp.com/"
+    "https://hotel-app-equipo13.herokuapp.com"
 ]
 api.add_middleware(
     CORSMiddleware, allow_origins=origins,
