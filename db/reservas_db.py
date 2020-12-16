@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 class ReservaInDB(BaseModel):
     idReserva: int = 2
-    fechaReserva: datetime = datetime.now()
+    fechaReserva: datetime = datetime.utcnow()
     fechaLlegada: date
     fechaSalida: date
     habitacion: str
@@ -25,7 +25,7 @@ database_reservas = {
     "fechaReserva":'2020-12-09 21:30:48.620822',
     "fechaLlegada": '2020-12-10',
     "fechaSalida": '2020-12-12',
-    "habitacion": "Suit de lujo",
+    "habitacion": "Suite",
     "numeroPersonas": 2,
     "nombres": "Juan",
     "apellidos": "Rulfo Vizcaíno",
@@ -42,7 +42,7 @@ database_reservas = {
     "fechaReserva":'2020-12-09 22:30:48.620822',
     "fechaLlegada": '2020-12-11',
     "fechaSalida": '2020-12-13',
-    "habitacion": "Suit de lujo",
+    "habitacion": "Suite",
     "numeroPersonas": 4,
     "nombres": "Gabriel",
     "apellidos": "García Márquez",
@@ -84,21 +84,23 @@ reserva existente.
 def buscar_fecha(reserva_in_db: ReservaInDB):
     fechaLlegadaPref = reserva_in_db.fechaLlegada
     fechaSalidaPref = reserva_in_db.fechaSalida
+    salida = True
     for i in database_reservas.values():
-        fechaLlegadaOcupada = i.fechaLlegada
-        fechaSalidaOcupada = i.fechaSalida
-        #op1 = fechaLlegadaOcupada - fechaLlegadaPref
-        #op2 = fechaLlegadaOcupada - fechaSalidaPref
-        #op3 = fechaSalidaOcupada - fechaLlegadaPref
-        #op4 = fechaSalidaOcupada - fechaSalidaPref
-        a = fechaLlegadaOcupada
-        b = fechaSalidaOcupada
-        c = fechaLlegadaPref
-        d = fechaSalidaPref
-        if (a < c) & (a < d) & (b <= c) & (b < d):
-            salida = True
-        elif (a > c) & (a >= d) & (b > c) & (b > d):
-            salida = True
-        else:
-            return False
+      if reserva_in_db.habitacion == i.habitacion:
+            fechaLlegadaOcupada = i.fechaLlegada
+            fechaSalidaOcupada = i.fechaSalida
+            #op1 = fechaLlegadaOcupada - fechaLlegadaPref
+            #op2 = fechaLlegadaOcupada - fechaSalidaPref
+            #op3 = fechaSalidaOcupada - fechaLlegadaPref
+            #op4 = fechaSalidaOcupada - fechaSalidaPref
+            a = fechaLlegadaOcupada
+            b = fechaSalidaOcupada
+            c = fechaLlegadaPref
+            d = fechaSalidaPref
+            if (a < c) & (a < d) & (b <= c) & (b < d):
+                salida = True
+            elif (a > c) & (a >= d) & (b > c) & (b > d):
+                salida = True
+            else:
+                return False
     return salida

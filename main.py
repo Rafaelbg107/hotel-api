@@ -11,6 +11,20 @@ from datetime import datetime, date
 from fastapi import FastAPI, HTTPException
 api = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080",
+    "https://rrbustosg-cajero-app.herokuapp.com/", "http://127.0.0.1:8080"
+    "https://rrbustosg-cajero-app.herokuapp.com", "http://127.0.0.1:8080",
+    "https://hotel-app-equipo13.herokuapp.com/", "https://hotel-app-equipo13.herokuapp.com/"
+]
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
+
 # SECCIÓN RESERVAS # 
 
 @api.get("/reserva/{idReserva}")
@@ -30,7 +44,16 @@ async def make_reserva(reserva_in: ReservaIn):
         return new_reserva
     else:
         raise HTTPException(status_code=400,
-                            detail="Fecha no disponible")
+                            detail="La habitación no está disponible para la fecha seleccionada")
+
+@api.post("/reserva/disponibilidad")
+async def make_reserva(reserva_in: ReservaIn):
+    disponible = buscar_fecha(reserva_in)
+    if disponible:
+        return True
+    else:
+        raise HTTPException(status_code=400,
+                            detail="La habitación no está disponible para la fecha seleccionada")
 
   #SECCIÓN USUARIOS #
   
