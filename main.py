@@ -83,3 +83,8 @@ async def auth_user(usuarios_in: UsuariosIn):
 async def reservas_user(email : str):
     reservas = get_reservas_usuario(email)
     return reservas
+
+@api.get("/perfil/consultar/{email}")
+async def reservas_user(email : str):
+    reservas = get_reservas_usuario(email)
+    return reservas

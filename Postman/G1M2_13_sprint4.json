@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "bd1e565e-8f53-4e74-9e3a-20ec3be45087",
+		"name": "G1M2_13_sprint4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AutenticarUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "AutenticarUsuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"juanrulfo@gmail.com\",\r\n    \"clave\":\"pedroparamo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hotel-equipo13-api.herokuapp.com/usuarios/auth/",
+							"protocol": "https",
+							"host": [
+								"hotel-equipo13-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios",
+								"auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Dec 2020 21:56:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Autenticado\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetDatosUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "GetDatosUser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hotel-equipo13-api.herokuapp.com/usuarios/juanrulfo@gmail.com",
+							"protocol": "https",
+							"host": [
+								"hotel-equipo13-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios",
+								"juanrulfo@gmail.com"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Dec 2020 21:55:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"juanrulfo@gmail.com\",\n    \"nombres\": \"Juan\",\n    \"apellidos\": \"Rulfo Vizcaíno\",\n    \"telefono\": 3104632378,\n    \"pais\": \"México\",\n    \"ciudad\": \"San Gabriel\",\n    \"direccion\": \"Calle 52 #28-20\"\n}"
+				}
+			]
+		}
+	]
+}
