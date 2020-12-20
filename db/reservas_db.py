@@ -104,3 +104,22 @@ def buscar_fecha(reserva_in_db: ReservaInDB):
             else:
                 return False
     return salida
+
+def get_reservas_usuario(email : str):
+    count = 0
+    reservas = {}
+    for i in reversed(database_reservas.values()):
+      if i.email == email:
+          count += 1
+          reservas["a"+str(count)] = {
+            "idReserva":i.idReserva,
+            "fechaReserva":i.fechaReserva,
+            "fechaLlegada": i.fechaLlegada,
+            "fechaSalida": i.fechaSalida,
+            "habitacion": i.habitacion,
+            "numeroPersonas": i.numeroPersonas,
+            "pais": i.pais,
+            "ciudad": i.ciudad,
+            "direccion": i.direccion
+          }
+    return reservas

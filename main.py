@@ -1,5 +1,5 @@
 from db.reservas_db import ReservaInDB
-from db.reservas_db import save_reserva, get_reserva, buscar_fecha
+from db.reservas_db import save_reserva, get_reserva, buscar_fecha, get_reservas_usuario
 
 from db.usuarios_db import UsuariosInDB
 from db.usuarios_db import get_usuarios, update_usuarios 
@@ -17,7 +17,7 @@ origins = [
     "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
     "http://localhost", "http://localhost:8080", "http://127.0.0.1:8080",
     "http://hotel-app-equipo13.herokuapp.com/",
-    "https://hotel-app-equipo13.herokuapp.com"
+    "https://hotel-app-equipo13.herokuapp.com", "http://127.0.0.1:8081"
 ]
 api.add_middleware(
     CORSMiddleware, allow_origins=origins,
@@ -77,3 +77,8 @@ async def auth_user(usuarios_in: UsuariosIn):
         return  {"Autenticado": False}
 
     return  {"Autenticado": True}
+
+@api.get("/perfil/reservas/{email}")
+async def reservas_user(email : str):
+    reservas = get_reservas_usuario(email)
+    return reservas

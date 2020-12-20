@@ -52,4 +52,3 @@ def get_usuarios(email: str):
 def update_usuarios(usuarios_in_db: UsuariosInDB):
     database_usuarios[usuarios_in_db.email] = usuarios_in_db
     return usuarios_in_db
-
