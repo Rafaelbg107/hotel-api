@@ -7,6 +7,7 @@ from db.usuarios_db import get_usuarios, update_usuarios
 from models.reservas_models import ReservaOut, ReservaIn
 from models.usuarios_models import UsuariosIn, UsuariosOut 
 
+from fastapi import FastAPI, HTTPException
 from datetime import datetime, date
 
 from starlette.middleware import Middleware
