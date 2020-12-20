@@ -8,21 +8,21 @@ from models.reservas_models import ReservaOut, ReservaIn
 from models.usuarios_models import UsuariosIn, UsuariosOut 
 
 from datetime import datetime, date
-from fastapi import FastAPI, HTTPException
-api = FastAPI()
 
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 
 origins = [
     "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
     "http://localhost", "http://localhost:8080", "http://127.0.0.1:8080",
-    "http://hotel-app-equipo13.herokuapp.com/",
-    "https://hotel-app-equipo13.herokuapp.com", "http://127.0.0.1:8081"
+    "https://hotel-app-equipo13.herokuapp.com"
 ]
-api.add_middleware(
+middleware = [Middleware(
     CORSMiddleware, allow_origins=origins,
     allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
-)
+)]
+
+api = FastAPI(middleware=middleware)
 
 # SECCIÓN RESERVAS # 
 
