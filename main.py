@@ -10,8 +10,8 @@ from models.usuarios_models import UsuariosIn, UsuariosOut
 from fastapi import FastAPI, HTTPException
 from datetime import datetime, date
 
-from starlette.middleware import Middleware
-from starlette.middleware.cors import CORSMiddleware
+from fastapi.middleware import Middleware
+from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
     "https://hotel-continental.herokuapp.com",
