@@ -17,7 +17,7 @@ database_usuarios = Dict[str, UsuariosInDB]
 database_usuarios = {
     "juanrulfo@gmail.com" : UsuariosInDB(**{
                             "email": "juanrulfo@gmail.com",
-                            "clave": "pedroparamo",
+                            "clave": "pedroparamo1",
                             "nombres": "Juan",
                             "apellidos": "Rulfo Vizcaíno",
                             "telefono": 3104632378,
